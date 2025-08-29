@@ -14,7 +14,7 @@
 
 *(Describe los cambios en detalle. ¿Por qué se hizo este cambio? ¿Qué problema resuelve? Si está relacionado con un issue o una tarea, menciónalo aquí.)*
 
-* **Problema resuelto:** [Ej. Soluciona el error de "Invalid `<Link>` with `<a>` child" en la versión 14 de Next.js.]
+* **Problema resuelto:** [Ej. Soluciona el error de "Invalid `<Link>` with `<a>` child" en la versión 15 de Next.js.]
 * **Cambios implementados:** [Ej. Se refactorizó el componente `LinkButton.tsx` para eliminar el anidamiento del tag `<a>` y se ajustó el archivo de tipos.]
 * **Impacto:** [Ej. El componente ahora sigue las mejores prácticas de Next.js y el código es más limpio y fácil de mantener.]
 
