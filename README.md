@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Rick & Morty Characters App
 
-First, run the development server:
+Esta es una aplicación creada con [Next.js](https://nextjs.org) usando [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).  
+Permite explorar personajes de Rick & Morty con filtrado, paginación, historial de personajes recientes y gestión de estado global mediante Redux.
 
+
+## Funcionalidades
+
+- Listado de todos los personajes con paginación.
+- Filtrado de personajes por nombre en tiempo real.
+- Visualización de detalles de cada personaje.
+- Seguimiento de los últimos 5 personajes visitados usando `localStorage`.
+- Gestión global del estado con Redux para la lista de personajes y detalles individuales.
+- Componentes reutilizables: `Button`, `Card`, `Input`, `LinkButton`.
+- Tipado completo con TypeScript.
+- Pruebas unitarias con Jest y React Testing Library.
+- Optimización automática de fuentes con [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) (fuente Geist).
+
+
+## Cómo empezar
+
+Para instalar el repositorio escoja: SSH o HTTPS
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone git@gitlab.com:jpachecox/rick-morty-characters-app
+```
+```bash
+  git clone https://github.com/jpachecox/rick-morty-characters-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ir al directorio del proyecto
+```bash
+  cd rick-morty-characters-app
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Instalar dependencias
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ejecutar el proyecto en local:
+```bash
+  npm run dev
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura de los Módulos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dentro de la carpeta app/Modulos, cada módulo debe respetar la estructura base de un proyecto Laravel que permita mantener un diseño limpio, escalable y organizado.
 
-## Deploy on Vercel
+Estructura para cada módulo:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├─ components/           # Shared components (Button, Input, Card, LinkButton)
+├─ features/
+│  ├─ characters/        # Characters module
+│  │   ├─ components/    # Components for characters
+│  │   ├─ hooks/         # useCharacters, useCharacter
+│  │   ├─ services/      # API services
+│  │   ├─ store/         # Redux slices for characters and detail
+│  │   └─ types/         # Domain types
+├─ shared/               # Shared utilities and types
+├─ store/                # Redux store configuration
+├─ app/                  # Next.js pages
+```
+## Recursos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest](https://jestjs.io/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [clsx](https://github.com/lukeed/clsx)
+- [Rick & Morty API](https://rickandmortyapi.com/documentation)
+
+
+## Variables de Entorno
+
+Copia el archivo env.local.example y renombralo a .env.local y agregar el URL del API
+
+`NEXT_PUBLIC_API_URL`
+
