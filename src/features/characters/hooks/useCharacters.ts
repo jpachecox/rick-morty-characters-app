@@ -23,8 +23,6 @@ export const useCharacters = (page: number = 1, name?: string) => {
             try {
                 const data = await charactersService.getAll(page, name);
 
-                // console.log(data)
-
                 dispatch(setCharacters(data.results));
                 dispatch(setTotalPages(data.info.pages));
                 dispatch(setError(null));
