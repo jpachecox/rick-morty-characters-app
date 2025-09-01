@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { addRecentCharacter } from "@/utils/recentCharacters";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useCharacter } from "@/features/characters/hooks/useCharacter";
-import Image from "next/image";
+import { addRecentCharacter } from "@/utils/recentCharacters";
 
 export default function CharacterDetailPage() {
   const params = useParams();
@@ -38,8 +38,8 @@ export default function CharacterDetailPage() {
       <div className="flex flex-col md:flex-row gap-8 items-center">
         {/* Imagen */}
         <Image
-          src={character.image}
-          alt={character.name}
+          src={character.image!}
+          alt={character.name!}
           width={300}
           height={300}
           className="rounded-lg shadow-lg"

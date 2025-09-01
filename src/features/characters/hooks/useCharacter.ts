@@ -1,28 +1,30 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { Domain } from "../types";
+import { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch } from "@/store";
 import { charactersService } from "../services";
+import { setCharacter, setLoading, setError } from "@/store/slices/character/slice.detail.character";
+import { characterSelector } from "@/store/slices/character/character.selector";
 
 export const useCharacter = (id: string) => {
-    const [character, setCharacter] = useState<Domain | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const dispatch = useDispatch<AppDispatch>();
+    const { character, loading, error } = useSelector(characterSelector);
 
     const fetchCharacter = useCallback(async () => {
         if (!id) return;
 
+        dispatch(setLoading(true));
         try {
-            setLoading(true);
             const data = await charactersService.getById(id);
-            setCharacter(data);
-            setError(null);
+            dispatch(setCharacter(data));
+            dispatch(setError(null));
         } catch (err) {
-            setError(err instanceof Error ? err.message : "Error desconocido");
+            dispatch(setError(err instanceof Error ? err.message : "Error desconocido"));
         } finally {
-            setLoading(false);
+            dispatch(setLoading(false));
         }
-    }, [id]);
+    }, [dispatch, id]);
 
     useEffect(() => {
         fetchCharacter();
