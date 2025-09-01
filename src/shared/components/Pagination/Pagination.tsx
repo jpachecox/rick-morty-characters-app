@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Button from "@/components/Button/Button";
+import Button from "@/shared/components/Button/Button";
 import { PaginationProps } from "@/shared/types/pagination";
 import { PaginationLabels } from "@/shared/constants/pagination.constants";
 
-export const Pagination: React.FC<PaginationProps> = ({
+const Pagination: React.FC<PaginationProps> = ({
     currentPage,
     totalPages,
     onPageChange,
@@ -68,3 +68,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         </div>
     );
 };
+
+Pagination.displayName = 'Pagination';
+
+export default Pagination;

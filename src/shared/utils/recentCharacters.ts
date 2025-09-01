@@ -1,6 +1,7 @@
 import { Result } from "@/shared/types/domain";
 
 const STORAGE_KEY = "recent_characters";
+const MAX_RECENT = Number(process.env.NEXT_PUBLIC_MAX_RECENT_CHARACTERS) || 5;
 
 export function getRecentCharacters(): Result[] {
   if (typeof window === "undefined") return [];
@@ -23,9 +24,9 @@ export function addRecentCharacter(newCharacter: Result): void {
   // Colocar el nuevo personaje al inicio (es el más reciente)
   recentCharacters.unshift(newCharacter);
 
-  // Conservar solo los últimos 5 personajes visitados
-  if (recentCharacters.length > 5) {
-    recentCharacters = recentCharacters.slice(0, 5);
+  // Conservar solo los últimos #MAX_RECENT personajes visitados
+  if (recentCharacters.length > MAX_RECENT) {
+    recentCharacters = recentCharacters.slice(0, MAX_RECENT);
   }
 
   // Guardar la lista actualizada en localStorage

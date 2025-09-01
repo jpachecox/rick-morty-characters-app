@@ -1,5 +1,5 @@
 import React from "react";
-import CardComponent from "@/components/Card/Card";
+import CardComponent from "@/shared/components/Card/Card";
 import Image from "next/image";
 import { Result } from "@/shared/types/domain";
 
