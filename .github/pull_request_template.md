@@ -1,52 +1,64 @@
-# Descripción del Pull Request
+## Nombre de la tarea
 
-## ¿Qué tipo de cambio es este?
-*(Marca con una `x` lo que aplique)*
+**Enlace:** [Nombre de la tarea]() <!-- Agregar link de Asana/Jira aquí -->
+
+## Tipo de Cambio
 
 - [ ] Nueva Característica
-- [ ] Corrección de Bug
+- [ ] Corrección de Bug  
 - [ ] Refactorización de Código
 - [ ] Actualización de Documentación
-- [ ] Configuración/Setup
-- [ ] Estilo de código (ej. formato, nombres de variables)
+- [ ] Configuración
+- [ ] Estilos
 
-## Descripción del Cambio
+## Resumen
 
-*(Describe los cambios en detalle. ¿Por qué se hizo este cambio? ¿Qué problema resuelve? Si está relacionado con un issue o una tarea, menciónalo aquí.)*
+**Problema:** 
 
-* **Problema resuelto:** [Ej. Soluciona el error de "Invalid `<Link>` with `<a>` child" en la versión 15 de Next.js.]
-* **Cambios implementados:** [Ej. Se refactorizó el componente `LinkButton.tsx` para eliminar el anidamiento del tag `<a>` y se ajustó el archivo de tipos.]
-* **Impacto:** [Ej. El componente ahora sigue las mejores prácticas de Next.js y el código es más limpio y fácil de mantener.]
+**Solución:**
+- 
+- 
+- 
 
-## Checklist de Revisión
+**Impacto:** 
 
-*(Antes de solicitar la revisión, asegúrate de que todos los puntos estén marcados. Esto garantiza que el código cumple con los estándares mínimos.)*
+## Checklist
 
-- [ ] Mi código sigue las guías de estilo del proyecto
-- [ ] He actualizado la documentación si es necesario
-- [ ] He realizado pruebas exhaustivas de mis cambios
-- [ ] Mi código no introduce nuevos warnings o errores
-- [ ] Se han resuelto todos los comentarios de la revisión anterior (si aplica)
-- [ ] He validado que la aplicación funciona correctamente después de mis cambios
+- [ ] Código sigue guías de estilo del proyecto
+- [ ] Documentación actualizada
+- [ ] Pruebas realizadas y pasando
+- [ ] Sin nuevos warnings/errores
+- [ ] Aplicación funciona correctamente
+- [ ] Comentarios de revisión anterior resueltos
 
-## Capturas de Pantalla (si aplica)
+## Testing
 
-*(Si el cambio es visual, adjunta capturas de pantalla o un GIF para mostrar el antes y el después. Esto es muy útil para el revisor.)*
+### Para el Revisor
+- [ ] 
+- [ ] 
+
+### Casos de Prueba
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+
+## Screenshots
+
+<details>
+<summary>Ver cambios visuales (si aplica)</summary>
 
 **Antes:**
-[Adjunta una imagen del estado anterior]
+<!-- Imagen del estado anterior -->
 
-**Después:**
-[Adjunta una imagen del estado después de los cambios]
+**Después:**  
+<!-- Imagen del estado actual -->
 
-## Tareas de Revisión Adicional
+</details>
 
-*(Si el revisor debe probar alguna funcionalidad específica o si hay algo que necesita su atención particular, menciónalo aquí.)*
+## Contexto Adicional
 
-- [ ] Verificar que el componente `LinkButton` funcione correctamente en todas las páginas donde se utiliza
-- [ ] Confirmar que el `ref` se pasa adecuadamente al elemento `<a>` subyacente
+
 
 ---
-
-**Notas adicionales:**
-[Cualquier información adicional que consideres relevante para el revisor]
+<sub>**Tip:** Revisa el checklist antes de solicitar review</sub>
