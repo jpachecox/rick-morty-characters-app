@@ -1,4 +1,4 @@
-import { Status } from "@/features/characters/types/status";
+import { Status } from "@/shared/types/domain";
 
 /**
  * Utilidades para trabajar con el status de personajes
@@ -17,7 +17,7 @@ export const StatusUtils = {
     /**
      * Verifica si el status es desconocido
      */
-    isUnknown: (status: Status): boolean => status === "Unknown",
+    isUnknown: (status: Status): boolean => status === "unknown",
 
     /**
      * Filtra personajes por status

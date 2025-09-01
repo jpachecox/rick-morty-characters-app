@@ -1,18 +1,5 @@
 import { ButtonVariant, ButtonSize } from "@/components/Button/Button.types";
 
-/**
- * Respuesta de la API de Rick and Morty
- */
-export interface ApiResponse<T> {
-  info: {
-    count: number
-    pages: number
-    next: string | null
-    prev: string | null
-  }
-  results: T[]
-}
-
 export interface PaginationProps {
   currentPage: number
   totalItems: number
@@ -48,23 +35,16 @@ export interface PaginationState {
     totalPages: number
 }
 
-export interface PaginationConfig<T = unknown> {
-    initialPage?: number
-    initialPageSize?: number
-    pageSizeOptions?: number[]
-    fetchData?: (page: number) => Promise<ApiResponse<T>>
-}
-
 export interface PaginatedResponse<T> {
-    data: T[]
-    pagination: {
-        page: number
-        pageSize: number
-        totalItems: number
-        totalPages: number
-        hasNext: boolean
-        hasPrevious: boolean
-    }
+  data: T[]
+  pagination: {
+    page: number
+    pageSize: number
+    totalItems: number
+    totalPages: number
+    hasNext: boolean
+    hasPrevious: boolean
+  }
 }
 
 export interface PaginationParams {
@@ -74,9 +54,9 @@ export interface PaginationParams {
 }
 
 export interface UsePaginationReturn {
-    pagination: PaginationState
-    paginationProps: PaginationProps
-    getPageNumbers: () => number[]
-    getStartIndex: () => number
-    getEndIndex: () => number
+  pagination: PaginationState
+  paginationProps: PaginationProps
+  getPageNumbers: () => number[]
+  getStartIndex: () => number
+  getEndIndex: () => number
 }

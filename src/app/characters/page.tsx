@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CharacterList } from "@/features/characters/components/List";
-import { useCharacters } from "@/features/characters/hooks";
+import { useCharacters } from "@/features/characters/hooks/useCharacters";
 import { Pagination } from "@/shared/components/Pagination";
 import Input from "@/components/Input/Input";
 
@@ -13,9 +13,7 @@ export default function CharactersPage() {
 
   return (
     <main className="container mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6 text-rick-blue-600">
-        Personajes
-      </h1>
+      <h1 className="text-2xl font-bold mb-6 text-rick-blue-600">Personajes</h1>
 
       {loading && (
         <p className="text-blue-500 mt-4">Cargando personajes...</p>
@@ -53,7 +51,7 @@ export default function CharactersPage() {
         totalPages={totalPages}
         onPageChange={setPage}
         disabled={loading}
-        size="sm"
+        size="md"
         variant="secondary"
         totalItems={characters?.length ?? 0}
         itemsPerPage={20}

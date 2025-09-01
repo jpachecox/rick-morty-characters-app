@@ -1,34 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Domain } from "../types";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { charactersService } from "../services";
-import { ApiResponse } from "@/shared/types/pagination.types";
+import { RootState, AppDispatch } from "@/store";
+import {
+  setCharacters,
+  setTotalPages,
+  setLoading,
+  setError,
+} from "@/store/slices/character/slice.characters";
 
 export const useCharacters = (page: number = 1, name?: string) => {
-    const [characters, setCharacters] = useState<Domain[]>([]);
-    const [totalPages, setTotalPages] = useState(1);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const dispatch = useDispatch<AppDispatch>();
+    const { characters, totalPages, loading, error } = useSelector(
+        (state: RootState) => state.characters
+    );
 
     useEffect(() => {
         const fetchCharacters = async () => {
+            dispatch(setLoading(true));
             try {
-                setLoading(true);
-                const data: ApiResponse<Domain> = await charactersService.getAll(page, name);
+                const data = await charactersService.getAll(page, name);
 
-                setCharacters(data.results);
-                setTotalPages(data.info.pages);
-                setError(null);
+                // console.log(data)
+
+                dispatch(setCharacters(data.results));
+                dispatch(setTotalPages(data.info.pages));
+                dispatch(setError(null));
             } catch (err) {
-                setError(err instanceof Error ? err.message : "Error desconocido");
+                dispatch(setError(err instanceof Error ? err.message : "Error desconocido"));
             } finally {
-                setLoading(false);
+                dispatch(setLoading(false));
             }
         };
 
         fetchCharacters();
-    }, [page, name]);
+    }, [dispatch, page, name]);
 
     return {
         characters,
