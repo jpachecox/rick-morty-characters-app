@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { addRecentCharacter } from "@/utils/recentCharacters";
 import { useParams } from "next/navigation";
 import { useCharacter } from "@/features/characters/hooks/useCharacter";
 import Image from "next/image";
@@ -8,6 +10,16 @@ export default function CharacterDetailPage() {
   const params = useParams();
   const id = params?.id as string;
   const { character, loading, error } = useCharacter(id);
+  
+  useEffect(() => {
+    if (character) {
+      addRecentCharacter({
+        id: Number(character.id),
+        name: character.name,
+        image: character.image,
+      });
+    }
+  }, [character]);
 
   if (loading) {
     return <div className="p-6 text-rick-blue-500">Cargando personaje...</div>;
