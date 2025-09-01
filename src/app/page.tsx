@@ -1,5 +1,6 @@
 import Image from "next/image";
 import LinkButton from "@/components/LinkButton/LinkButton";
+import RecentCharacters from "@/features/characters/components/Recent";
 
 export default function Home() {
   return (
@@ -51,6 +52,8 @@ export default function Home() {
             Read our docs
           </LinkButton>
         </div>
+
+        <RecentCharacters />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
