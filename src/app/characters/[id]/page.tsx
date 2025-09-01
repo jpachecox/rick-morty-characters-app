@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useCharacter } from "@/features/characters/hooks/useCharacter";
 import { addRecentCharacter } from "@/shared/utils/recentCharacters";
+import { LinkButton } from "@/shared/components";
 
 export default function CharacterDetailPage() {
   const params = useParams();
@@ -35,6 +36,18 @@ export default function CharacterDetailPage() {
 
   return (
     <main className="container mx-auto py-8">
+      
+      <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <LinkButton
+          href="/characters"
+          target="_self"
+          rel="noopener noreferrer"
+          variant="primary"
+        >
+          Ir a Personajes
+        </LinkButton>
+      </div>
+
       <div className="flex flex-col md:flex-row gap-8 items-center">
         {/* Imagen */}
         <Image
