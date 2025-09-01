@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { useId, forwardRef, useState } from 'react';
 import { clsx } from 'clsx';
 import { getInputClasses, getLabelClasses, getIconClasses } from './Input.styles';
 import { type InputProps } from './Input.types';
@@ -17,9 +17,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   ...props
 }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
-
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
-
+  const inputId = useId();
+ 
   const inputClasses = getInputClasses({ ...props, leftIcon, rightIcon, variant, fullWidth, className, error }, isFocused);
   const labelClasses = getLabelClasses({ ...props, error }, isFocused);
   const iconClasses = getIconClasses({ ...props, error }, isFocused);
