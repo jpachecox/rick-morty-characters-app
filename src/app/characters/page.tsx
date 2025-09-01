@@ -3,17 +3,29 @@
 import { useState } from "react";
 import { CharacterList } from "@/features/characters/components/List";
 import { useCharacters } from "@/features/characters/hooks/useCharacters";
-import { Pagination } from "@/shared/components/Pagination";
-import Input from "@/components/Input/Input";
+import Pagination from "@/shared/components/Pagination/Pagination";
+import Input from "@/shared/components/Input/Input";
+import { LinkButton } from "@/shared/components";
 
 export default function CharactersPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const { characters, totalPages, loading, error } = useCharacters(page, search);
+  const ITEMS_PER_PAGE = Number(process.env.NEXT_PUBLIC_ITEMS_PER_PAGE) || 20;
 
   return (
     <main className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-6 text-rick-blue-600">Personajes</h1>
+
+      <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <LinkButton
+          href="/"
+          target="_self"
+          variant="danger"
+        >
+          Inicio
+        </LinkButton>
+      </div>
 
       {loading && (
         <p className="text-blue-500 mt-4">Cargando personajes...</p>
@@ -54,7 +66,7 @@ export default function CharactersPage() {
         size="md"
         variant="secondary"
         totalItems={characters?.length ?? 0}
-        itemsPerPage={20}
+        itemsPerPage={ITEMS_PER_PAGE}
       />
     </main>
   );

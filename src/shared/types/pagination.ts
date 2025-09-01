@@ -1,4 +1,4 @@
-import { ButtonVariant, ButtonSize } from "@/components/Button/Button.types";
+import { ButtonVariant, ButtonSize } from "@/shared/components/Button/Button.types";
 
 export interface PaginationProps {
   currentPage: number

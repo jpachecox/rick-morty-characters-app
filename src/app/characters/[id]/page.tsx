@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useCharacter } from "@/features/characters/hooks/useCharacter";
-import { addRecentCharacter } from "@/utils/recentCharacters";
+import { addRecentCharacter } from "@/shared/utils/recentCharacters";
 
 export default function CharacterDetailPage() {
   const params = useParams();
