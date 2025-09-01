@@ -2,7 +2,7 @@
 
 import React from "react";
 import Button from "@/components/Button/Button";
-import { PaginationProps } from "@/shared/types/pagination.types";
+import { PaginationProps } from "@/shared/types/pagination";
 import { PaginationLabels } from "@/shared/constants/pagination.constants";
 
 export const Pagination: React.FC<PaginationProps> = ({
