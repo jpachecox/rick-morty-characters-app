@@ -1,3 +1,5 @@
+import { ButtonVariant, ButtonSize } from "@/components/Button/Button.types";
+
 /**
  * Respuesta de la API de Rick and Morty
  */
@@ -12,19 +14,31 @@ export interface ApiResponse<T> {
 }
 
 export interface PaginationProps {
-    currentPage: number
-    totalItems: number
-    itemsPerPage: number
-    totalPages: number
-    onPageChange: (page: number) => void
-    onPageSizeChange?: (pageSize: number) => void
-    pageSizeOptions?: number[]
-    maxPageButtons?: number
-    showItemsInfo?: boolean
-    showPageSizeSelector?: boolean
-    showFirstLastButtons?: boolean
-    isLoading?: boolean
-    disabled?: boolean
+  currentPage: number
+  totalItems: number
+  itemsPerPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+  onPageSizeChange?: (pageSize: number) => void
+  pageSizeOptions?: number[]
+  maxPageButtons?: number
+  showItemsInfo?: boolean
+  showPageSizeSelector?: boolean
+  showFirstLastButtons?: boolean
+  isLoading?: boolean
+  disabled?: boolean
+  labels?: {
+    previous?: string
+    next?: string
+    first?: string
+    last?: string
+    itemsPerPage?: string
+    showing?: string
+    of?: string
+    items?: string
+  }
+  size?: ButtonSize;
+  variant?: ButtonVariant;
 }
 
 export interface PaginationState {

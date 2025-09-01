@@ -1,4 +1,4 @@
-export const DEFAULT_PAGINATION_LABELS = {
+export const PaginationLabels = {
     previous: 'Anterior',
     next: 'Siguiente', 
     first: 'Primera',
