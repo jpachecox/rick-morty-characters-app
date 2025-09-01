@@ -1,0 +1,1 @@
+export { charactersService } from './service';
