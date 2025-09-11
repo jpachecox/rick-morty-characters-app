@@ -17,7 +17,9 @@ export default function Home() {
             Ver todos los Personajes
           </LinkButton>
         </div>
+        
         <RecentCharacters />
+        
       </main>
     </div>
   );
