@@ -1,0 +1,1 @@
+export { locationsService } from './service';
