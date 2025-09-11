@@ -26,23 +26,39 @@ export type Result = {
 }
 
 export enum Gender {
-    Female = "Female",
-    Male = "Male",
-    Unknown = "unknown",
+  Female = "Female",
+  Male = "Male",
+  Unknown = "unknown",
 }
 
 export type Location = {
-    name: string;
-    url:  string;
+  id?:        number;
+  name?:      string;
+  type?:      Type;
+  dimension?: string;
+  residents?: string[];
+  url?:       string;
+  created?:   string;
 }
 
 export enum Species {
-    Alien = "Alien",
-    Human = "Human",
+  Alien = "Alien",
+  Human = "Human",
 }
 
 export enum Status {
-    Alive = "Alive",
-    Dead = "Dead",
-    Unknown = "unknown",
+  Alive = "Alive",
+  Dead = "Dead",
+  Unknown = "unknown",
+}
+
+export enum Type {
+  Planet = "Planet",
+  Cluster = "Cluster",
+  Space = "Space station",
+  Microverse = "Microverse",
+  Tv = "TV",
+  Resort = "Resort",
+  Fantasy = "Fantasy town",
+  Dream = "Dream"
 }
