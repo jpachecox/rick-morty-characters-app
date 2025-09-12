@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Result } from '@/shared/types/domain';
+import { Character } from '@/shared/types/domain';
 import { getRecentCharacters } from "@/shared/utils/recentCharacters";
 
 export default function RecentCharacters() {
-    const [recent, setRecent] = useState<Result[]>([]);
+    const [recent, setRecent] = useState<Character[]>([]);
 
     useEffect(() => {
         const stored = getRecentCharacters();
