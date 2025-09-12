@@ -2,12 +2,12 @@
  * Lista paginada de personajes con búsqueda y filtros.
  */
 import React from "react";
-import { Result } from '@/shared/types/domain';
+import { Character } from '@/shared/types/domain';
 import { PaginationProps } from "@/shared/types/pagination";
 import { Card } from "./Card";
 
 interface CharacterListProps {
-  characters: Result[];
+  characters: Character[];
   isLoading?: boolean
   pagination?: PaginationProps
 }

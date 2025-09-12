@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Result } from "@/shared/types/domain";
+import { Character } from "@/shared/types/domain";
 
 interface CharactersState {
-  characters: Result[];
+  characters: Character[];
   totalPages: number;
   page: number;
   search: string;
-  recentCharacters: Result[];
+  recentCharacters: Character[];
   loading: boolean;
   error: string | null;
 }
@@ -25,7 +25,7 @@ const charactersSlice = createSlice({
     name: "characters",
     initialState,
     reducers: {
-        setCharacters(state, action: PayloadAction<Result[]>) {
+        setCharacters(state, action: PayloadAction<Character[]>) {
             state.characters = action.payload;
         },
         setTotalPages(state, action: PayloadAction<number>) {
@@ -37,7 +37,7 @@ const charactersSlice = createSlice({
         setSearch(state, action: PayloadAction<string>) {
             state.search = action.payload;
         },
-        setRecentCharacters(state, action: PayloadAction<Result[]>) {
+        setRecentCharacters(state, action: PayloadAction<Character[]>) {
             state.recentCharacters = action.payload;
         },
         setLoading(state, action: PayloadAction<boolean>) {

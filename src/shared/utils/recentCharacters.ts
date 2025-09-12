@@ -1,20 +1,20 @@
-import { Result } from "@/shared/types/domain";
+import { Character } from "@/shared/types/domain";
 
 const STORAGE_KEY = "recent_characters";
 const MAX_RECENT = Number(process.env.NEXT_PUBLIC_MAX_RECENT_CHARACTERS) || 5;
 
-export function getRecentCharacters(): Result[] {
+export function getRecentCharacters(): Character[] {
   if (typeof window === "undefined") return [];
   const stored = localStorage.getItem(STORAGE_KEY);
-  return stored ? (JSON.parse(stored) as Result[]) : [];
+  return stored ? (JSON.parse(stored) as Character[]) : [];
 }
 
-export function addRecentCharacter(newCharacter: Result): void {
+export function addRecentCharacter(newCharacter: Character): void {
   // Evitar ejecutar en entornos donde no existe localStorage (SSR, tests, etc.)
   if (typeof window === "undefined") return;
 
   // Recuperar la lista actual de personajes visitados
-  let recentCharacters: Result[] = getRecentCharacters();
+  let recentCharacters: Character[] = getRecentCharacters();
 
   // Quitar cualquier aparición previa del personaje para evitar duplicados
   recentCharacters = recentCharacters.filter(

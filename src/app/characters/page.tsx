@@ -67,7 +67,6 @@ export default function CharactersPage() {
         variant="secondary"
         totalItems={characters?.length ?? 0}
         itemsPerPage={ITEMS_PER_PAGE}
-
       />
     </main>
   );
