@@ -1,10 +1,10 @@
 import React from "react";
 import CardComponent from "@/shared/components/Card/Card";
 import Image from "next/image";
-import { Result } from "@/shared/types/domain";
+import { Character } from "@/shared/types/domain";
 
 interface CardProps {
-  character: Result
+  character: Character
   onClick?: () => void
   onEdit?: () => void
   onDelete?: () => void
