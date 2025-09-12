@@ -1,8 +1,8 @@
-import { Result } from "@/shared/types/domain";
+import { Character } from "@/shared/types/domain";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface CharacterState {
-    character: Result | null;
+    character: Character | null;
     loading: boolean;
     error: string | null;
 }
@@ -17,7 +17,7 @@ const characterSlice = createSlice({
     name: "character",
     initialState,
     reducers: {
-        setCharacter(state, action: PayloadAction<Result | null>) {
+        setCharacter(state, action: PayloadAction<Character | null>) {
             state.character = action.payload;
         },
         setLoading(state, action: PayloadAction<boolean>) {
