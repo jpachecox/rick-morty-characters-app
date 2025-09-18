@@ -3,6 +3,10 @@
 import LinkButton from "@/shared/components/LinkButton/LinkButton";
 import RecentCharacters from "@/features/characters/components/Recent";
 
+/** Icons */
+import UsersIcon from "@/shared/components/icons/UsersIcon";
+import LocationIcon from "@/shared/components/icons/LocationIcon";
+
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -14,7 +18,16 @@ export default function Home() {
             rel="noopener noreferrer"
             variant="danger"
           >
-            Ver todos los Personajes
+            <UsersIcon className="size-6 mr-2" /> Personajes
+          </LinkButton>
+          
+          <LinkButton
+            href="/locations"
+            target="_self"
+            rel="noopener noreferrer"
+            variant="danger"
+          >
+            <LocationIcon className="size-6 mr-2" /> Locaciones
           </LinkButton>
         </div>
         

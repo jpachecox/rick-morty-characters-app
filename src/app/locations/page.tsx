@@ -1,22 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { CharacterList } from "@/features/characters/components/List";
-import { useCharacters } from "@/features/characters/hooks/useCharacters";
+import { LocationList } from "@/features/locations/components/List";
+import { useLocations } from "@/features/locations/hooks/useLocations";
+
+/** Components */
 import Pagination from "@/shared/components/Pagination/Pagination";
 import Input from "@/shared/components/Input/Input";
 import { LinkButton } from "@/shared/components";
+
+/** Icons */
 import SearchIcon from "@/shared/components/icons/SearchIcon";
+import ArrowLeftIcon from "@/shared/components/icons/ArrowLeftIcon";
 
 export default function CharactersPage() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const { characters, totalPages, loading, error } = useCharacters(page, search);
-  const ITEMS_PER_PAGE = Number(process.env.NEXT_PUBLIC_CHARACTERS_ITEMS_PER_PAGE) || 20;
+  const { locations, totalPages, loading, error } = useLocations(page, search);
+  const ITEMS_PER_PAGE = Number(process.env.NEXT_PUBLIC_ITEMS_PER_PAGE) || 20;
 
   return (
     <main className="container mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-6 text-rick-blue-600">Personajes</h1>
+      <h1 className="text-2xl font-bold mb-6 text-rick-blue-600">Locaciones</h1>
 
       <div className="flex gap-4 items-center flex-col sm:flex-row">
         <LinkButton
@@ -24,15 +29,15 @@ export default function CharactersPage() {
           target="_self"
           variant="danger"
         >
-          Inicio
+          <ArrowLeftIcon className="size-5 text-white" /> Volver al Inicio
         </LinkButton>
       </div>
 
-      <div className="bg-white w-full my-6 flex items-center gap-2 border border-gray-300 rounded-lg px-3 shadow-sm hover:border-gray-400 focus-within:border-sky-800 focus-within:ring-2 focus-within:ring-sky-400 transition">
+      <div className="bg-white w-full my-6 flex items-center gap-2 border border-gray-300 rounded-lg px-3 shadow-sm hover:border-gray-400 focus-within:border-gray-800 focus-within:ring-1 focus-within:ring-gray-400 transition">
         <SearchIcon className="w-5 h-5 text-gray-500" />
         <span className="text-gray-300">|</span>
         <Input
-          placeholder="Filtrar Personajes..."
+          placeholder="Filtrar Locaciones..."
           value={search}
           onChange={(e) => {
             setPage(1);
@@ -47,16 +52,16 @@ export default function CharactersPage() {
           <div className="flex justify-center items-center mt-4 py-4 w-full h-auto">
             <div className="flex items-center space-x-2">
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-              <p className="text-gray-500">Cargando personajes...</p>
+              <p className="text-gray-500">Cargando locaciones...</p>
             </div>
           </div>
         )}
 
-        <CharacterList characters={characters} />
+        <LocationList locations={locations} />
 
-        {!loading && characters.length === 0 && !error && (
+        {!loading && locations.length === 0 && !error && (
           <p className="text-gray-500 mt-4">
-            No se encontraron personajes.
+            No se encontraron locaciones.
           </p>
         )}
 
@@ -73,8 +78,8 @@ export default function CharactersPage() {
         onPageChange={setPage}
         disabled={loading}
         size="md"
-        variant="secondary"
-        totalItems={characters?.length ?? 0}
+        variant="primary"
+        totalItems={locations?.length ?? 0}
         itemsPerPage={ITEMS_PER_PAGE}
       />
     </main>
