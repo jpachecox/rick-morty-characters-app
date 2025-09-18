@@ -20,7 +20,7 @@ const Pagination: React.FC<PaginationProps> = ({
     if (totalPages <= 1) return null;
 
     return (
-        <div className="flex justify-center items-center gap-2 mt-6">
+        <div className="flex justify-center items-center gap-2 mt-10">
             <hr />
             {showFirstLastButtons && (
                 <Button
@@ -42,7 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 {labels.previous}
             </Button>
 
-            <span className="text-sm font-medium">
+            <span className="p-2 text-sm font-medium text-black/80">
                 {labels.showing} {currentPage} {labels.of} {totalPages}
             </span>
 
